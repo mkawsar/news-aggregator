@@ -46,13 +46,13 @@ Ensure you have the following software installed on your machine:
         "cli": {
             "entitiesDir": "./src/entity",
             "migrationsDir": "./src/migration"
-        }
+        }dddddddd
     }
     ```
 
 2. Environment Variables: If applicable, set environment variables such as `DATABASE_URL` to customize database connections.
 
-3. Create environment file and setup database, SMTP and change to dev to prod mode.
+3. Create environment file and setup databas and change to dev to prod mode.
     ```bash
     cp .env.example .env
     ```
