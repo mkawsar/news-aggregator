@@ -33,15 +33,19 @@ const fetchArticle = async (req: Request, res: Response, next: NextFunction) => 
     const articles = feeds.flatMap(feed => feed.items);
 
     for (const article of articles) {
-        const feed = new Article();
-        feed.title = article?.title;
-        feed.description = article?.content;
-        feed.creator = article?.creator;
-        feed.publication_date = new Date(article?.pubDate);
-        feed.source = article?.link;
-        await articleRepository.save(feed);
+        const existingArticle = await articleRepository.findOne({where: { title: article?.title }});
+        if (!existingArticle) {
+            const feed = new Article();
+            feed.title = article?.title;
+            feed.description = article?.content;
+            feed.creator = article?.creator;
+            feed.publication_date = new Date(article?.pubDate);
+            feed.source = article?.link;
+            await articleRepository.save(feed);
+        }
         status = 1;
     }
+
     if (status === 1) {
         return jsonOne<string>(res, 201, 'Feed store request has been executed successfully');
     } else {
