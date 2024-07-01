@@ -38,6 +38,6 @@ rssQueue.process(async (job, done) => {
 // Add a job to the queue every 15 minutes
 setInterval(() => {
     rssQueue.add({});
-}, 1 * 60 * 1000);
+}, 15 * 60 * 1000);
   
 console.log('Worker is running...');
