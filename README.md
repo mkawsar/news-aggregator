@@ -46,7 +46,7 @@ Ensure you have the following software installed on your machine:
         "cli": {
             "entitiesDir": "./src/entity",
             "migrationsDir": "./src/migration"
-        }dddddddd
+        }
     }
     ```
 
