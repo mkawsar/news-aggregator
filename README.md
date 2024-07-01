@@ -82,9 +82,15 @@ Ensure you have the following software installed on your machine:
     npm run feed:fetch
     ```
 6. API Endpoints: Once the server is running, you can access with this endpoints:
-    * POST `/api/v1/article/fetch`
-    * GET `/api/v1/article/list`
-7. Postman documentation
+    * POST `/api/v1/article/fetch` - Retrieves all articles from the database.
+    * GET `/api/v1/article/list` - Adds a job to the queue to fetch and save articles from RSS feeds.
+7. Error Handling
+    * All errors are logged and a 500 status code with a JSON error message is returned.
+8. Background Tasks
+    * Background tasks are managed using Bull and executed every 15 minutes.
+9. TypeORM Configuration
+    * Database connection and entity management are handled using TypeORM.
+10. Postman documentation
     * [https://documenter.getpostman.com/view/437214/2sA3dviBxc](https://documenter.getpostman.com/view/437214/2sA3dviBxc)
 
 ## Contributing
